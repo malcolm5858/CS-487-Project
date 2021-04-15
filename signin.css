@@ -40,7 +40,7 @@ fieldset input{
 fieldset input:hover{
 	border: 2px solid blue;
 }
-#signin-wrapper input{
+#signin-wrapper.forgot input{
 	width:50%;
 
 }
