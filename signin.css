@@ -26,6 +26,10 @@ fieldset{
 fieldset label{
 	float:left;
 }
+fieldset input{
+	float:left;
+	box-sizing: border-box;
+}
 
 #signin-wrapper.submitin{
 	text-align: center;
