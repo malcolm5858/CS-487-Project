@@ -5,6 +5,7 @@
 }
 #signin-wrapper{
 	margin: 20% auto;
+
 }
 header.funnel{
 	background: url("https://d1a3f4spazzrp4.cloudfront.net/arch-frontend/1.1.1/d1a3f4spazzrp4.cloudfront.net/1454024011-global_aqua_01_scale_125_144dpi_01-37a1ca0b8b.png") center center repeat;
@@ -24,9 +25,10 @@ fieldset{
 	border: transparent;
 }
 fieldset label{
+	text-align:left;
 	width: 90%;
 	float:left;
-	margin: 0% 10% 0% 0%;
+	margin: 5% 10% 0% 0%;
 }
 fieldset input{
 	font-size:1em;
@@ -38,8 +40,8 @@ fieldset input{
 fieldset input:hover{
 	border: 2px solid blue;
 }
+#signin-wrapper input{
+	width:50%;
 
-#signin-wrapper.submitin{
-	text-align: center;
 }
 
