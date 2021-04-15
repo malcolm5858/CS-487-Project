@@ -29,6 +29,7 @@ fieldset label{
 }
 fieldset input{
 	font-size:1em;
+	font-family: cursive;
 	width: 50%;
 	margin: 2% 25% 2% 25%;
 	height: 30px;
