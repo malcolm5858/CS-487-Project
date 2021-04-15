@@ -2,8 +2,13 @@
 	width: 480px;
 	height: 580px;
 	margin: 50px auto;
-	box-shadow: 0px 4px 8px 2px rgba(0,0,0,1);
-	border-radius: 12px 12px 12px 12px;
+	
+	
+}
+#signin-wrapper h2{
+	font-size:1em;
+	text-align: center;
+	
 }
 fieldset{
 	width: 80%;
@@ -13,9 +18,7 @@ fieldset{
 	float:left;
 	border: 5px solid black;
 }	
-fieldset legend{
-	text-align: center;
-}
+
 
 #signin-wrapper.submitin{
 	width:50px;
