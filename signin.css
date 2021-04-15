@@ -1,6 +1,7 @@
 #wrapper{
 	width: 480px;
 	height: 280px;
+	margin: 0% auto;
 }
 #signin-wrapper{
 	margin: 20% auto;
