@@ -7,10 +7,16 @@
 }
 fieldset{
 	width: 80%;
+	height: 70%;
 	margin: 0 10% 0 10%;
 	padding: 5px;
 	border: 5px solid black;
 }	
 fieldset legend{
 	text-align: center;
+}
+
+#signin-wrapper.submitin{
+	text-align: center;
+
 }
