@@ -48,9 +48,9 @@ fieldset input:hover{
 }
 .signup a{
 	text-decoration: none;
-	background: lightgray;
+	color:cornflowerblue;
 }
 .signup a:hover{
-	text-decoration: underline;
+	color:lightcyan;
 }
 
