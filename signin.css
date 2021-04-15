@@ -25,7 +25,6 @@ fieldset{
 }
 fieldset label{
 	width: 90%;
-	box-sizing: border-box;
 	margin: 0% 10% 0% 0%;
 }
 fieldset input{
