@@ -29,7 +29,7 @@ fieldset label{
 }
 fieldset input{
 	width: 50%;
-	margin: 0% 25% 0 25%;
+	margin: 5% 25% 5% 25%;
 	height: auto;
 	box-sizing: border-box;
 }
