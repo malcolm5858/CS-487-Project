@@ -35,9 +35,10 @@ fieldset input{
 	font-size:1em;
 	width: 90%;
 	margin: 2% 10% 2% 0%;
-	height: 30px;
+	height: 40px;
 	box-sizing: border-box;
 	border: 1px solid black;
+	border-radius:10px 10px 10px 10px;
 }
 fieldset input:hover{
 	border: 2px solid blue;
