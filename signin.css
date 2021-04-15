@@ -24,8 +24,9 @@ fieldset{
 	border: transparent;
 }
 fieldset label{
-	width: 50%;
-	margin: 0% 50% 0% 0%;
+	width: 90%;
+	box-sizing: border-box;
+	margin: 0% 10% 0% 0%;
 }
 fieldset input{
 	font-size:1em;
