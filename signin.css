@@ -5,7 +5,8 @@
 }
 header.funnel{
 	height: 40px;
-    background-size: 100%!important;
+	width:100%;
+    background-size: 60px 60px!important;
     position: relative;
 }
 #signin-wrapper h2{
