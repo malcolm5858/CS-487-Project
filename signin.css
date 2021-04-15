@@ -1,7 +1,8 @@
 #wrapper{
 	width: 480px;
-	height: 280px;
+	height: 580px;
 	margin: 0% auto;
+	background: aliceblue;
 }
 #signin-wrapper{
 	margin: 20% auto;
@@ -36,12 +37,40 @@ fieldset input{
 	margin: 2% 10% 2% 0%;
 	height: 30px;
 	box-sizing: border-box;
+	border: 1px solid black;
 }
 fieldset input:hover{
 	border: 2px solid blue;
 }
-#signin-wrapper.forgot input{
-	width:50%;
+.forgot input{
+	width: 40%;
+	font-size:1em;
+	margin: 0% 30% 3% 30%;
+	background:mintcream;
 
+}
+.submitin input{
+	width:50%;
+	font-size:2em;
+	margin: 5% 25% 0% 25%;
+	background:powderblue;
+}
+.submitin input:hover{
+	width: 51%;
+	font-size:2.1em;
+	margin: 5.1% 24.95% 1% 24.95%;
+	background: royalblue;
+	color: white;
+}
+.signup{
+	width: 50%;
+	margin: 5% 20% 0% 20%;
+}
+.signup a{
+	text-decoration: none;
+	color:blue;
+}
+.signup a:hover{
+	color:cornflowerblue;
 }
 
