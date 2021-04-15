@@ -46,4 +46,11 @@ fieldset input:hover{
 	width: 50%;
 	margin: 5% 20% 0% 20%;
 }
+.signup a{
+	text-decoration: none;
+	background: lightgray;
+}
+.signup a:hover{
+	text-decoration: underline;
+}
 
