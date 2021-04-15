@@ -11,6 +11,10 @@ header.funnel{
     box-sizing: border-box;
     position: relative;
 }
+#signin-wrapper h2{
+	font-size:2.5em;
+	text-align: center;
+}
 
 
 
