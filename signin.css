@@ -12,7 +12,7 @@
 }
 fieldset{
 	width: 80%;
-	height: 480px;
+	height: 50px;
 	margin: 3% 10% 3% 10%;
 	padding: 5px;
 	float:left;
@@ -21,8 +21,6 @@ fieldset{
 
 
 #signin-wrapper.submitin{
-	width:50px;
-	height:30px;
-	margin:5px 215px 5px 215px;
+	width: 20%;
 
 }
