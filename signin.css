@@ -2,6 +2,7 @@
 	width: 480px;
 	height: 280px;
 	margin: 0% auto;
+	background: aliceblue;
 }
 #signin-wrapper{
 	margin: 20% auto;
@@ -40,8 +41,12 @@ fieldset input{
 fieldset input:hover{
 	border: 2px solid blue;
 }
-#signin-wrapper.forgot input{
-	width:50%;
+#signin-wrapper.signup{
+	text-align:center;
+}
+#signin-wrapper.signup a{
+	text-decoration: none;
+	background:lightgray;
 
 }
 
