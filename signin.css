@@ -2,8 +2,11 @@
 	width: 480px;
 	height: 180px;
 	margin: 20% auto;
-	
-	
+}
+header.funnel{
+	height: 40px;
+    background-size: 60px 60px!important;
+    position: relative;
 }
 #signin-wrapper h2{
 	font-size:2.5em;
