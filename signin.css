@@ -23,6 +23,9 @@ fieldset{
 	text-align:center;
 	border: transparent;
 }
+fieldset label{
+	float:left;
+}
 
 #signin-wrapper.submitin{
 	text-align: center;
