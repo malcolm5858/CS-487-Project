@@ -38,7 +38,7 @@ fieldset input{
 	height: 40px;
 	box-sizing: border-box;
 	border: 1px solid black;
-	border-radius:10px 10px 10px 10px;
+	border-radius:7px 7px 7px 7px;
 }
 fieldset input:hover{
 	border: 2px solid blue;
