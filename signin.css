@@ -41,7 +41,12 @@ fieldset input{
 fieldset input:hover{
 	border: 2px solid blue;
 }
+.forgot input{
+	width: 20%;
+	height: 30px;
+	
 
+}
 .signup{
 	width: 50%;
 	margin: 5% 20% 0% 20%;
