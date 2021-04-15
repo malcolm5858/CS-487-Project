@@ -21,4 +21,7 @@ fieldset{
 	border: transparent;
 }
 
+#signin-wrapper input.submitin{
+	text-align: center;
+}
 
