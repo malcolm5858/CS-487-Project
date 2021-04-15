@@ -1,6 +1,6 @@
 #wrapper{
 	width: 480px;
-	height: 180px;
+	height: 280px;
 	margin: 0% auto;
 }
 header.funnel{
@@ -16,6 +16,7 @@ header.funnel{
 	text-align: center;
 
 }
+
 fieldset{
 	width: 80%;
 	height: 50px;
