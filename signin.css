@@ -25,9 +25,13 @@ fieldset{
 }
 fieldset label{
 	float:left;
+	margin-right: 50%;
 }
 fieldset input{
 	float:left;
+	width:150px;
+	height: auto;
+	margin:5% 50% 5% 0%;
 	box-sizing: border-box;
 }
 
