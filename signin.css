@@ -42,11 +42,11 @@ fieldset input:hover{
 #signin-wrapper.forgot input{
 	width:80px;
 	height:30px;
-	box-sizing: border-box;
 	
 }
 
 #signin-wrapper.submitin{
-	width:;
+	width:50px;
+	margin: 5%;
 }
 
