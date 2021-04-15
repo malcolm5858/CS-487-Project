@@ -55,6 +55,13 @@ fieldset input:hover{
 	margin: 5% 25% 0% 25%;
 	background:powderblue;
 }
+.submitin input:hover{
+	width: 51%;
+	font-size:2.1em;
+	margin: 5.1% 24.95% 1% 24.95%;
+	background: royalblue;
+	color: white;
+}
 .signup{
 	width: 50%;
 	margin: 5% 20% 0% 20%;
