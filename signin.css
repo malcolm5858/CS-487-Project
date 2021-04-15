@@ -6,12 +6,11 @@
 	border-radius: 12px 12px 12px 12px;
 }
 fieldset{
-	align-items: center;
 	width: 80%;
 	margin: 0 10% 0 10%;
 	padding: 5px;
 	border: 5px solid black;
 }	
-h2{
+fieldset legend{
 	text-align: center;
 }
