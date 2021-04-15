@@ -1,6 +1,6 @@
 #wrapper{
 	width: 480px;
-	height: 280px;
+	height: 580px;
 	margin: 0% auto;
 	background: aliceblue;
 }
@@ -48,6 +48,11 @@ fieldset input:hover{
 	margin: 0% 30% 3% 30%;
 	background:mintcream;
 
+}
+.submitin input{
+	width:50%;
+	font-size:1.5em;
+	margin: 5% 25% 0% 25%;
 }
 .signup{
 	width: 50%;
