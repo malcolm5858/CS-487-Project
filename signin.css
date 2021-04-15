@@ -41,12 +41,9 @@ fieldset input{
 fieldset input:hover{
 	border: 2px solid blue;
 }
-#signin-wrapper.signup{
-	text-align:center;
-}
-#signin-wrapper.signup a{
-	text-decoration: none;
-	background:lightgray;
 
+.signup{
+	width: 40%;
+	margin: 5% 30% 0% 30%;
 }
 
