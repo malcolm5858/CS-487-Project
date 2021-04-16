@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -18,11 +18,11 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <body id ="page-wrapper">
+  <body id="page-wrapper">
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="customer.html">Catch a Ride</a>
+          <a class="navbar-brand">Catch a Ride</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -37,54 +37,75 @@
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                <a class="nav-link" href="index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="driver.html">Drive</a>
+                <a class="nav-link" href="driver.html">Drive</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="customer.html" tabindex="-1">Get a Ride</a>
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="customer.html"
+                  tabindex="-1"
+                  >Get a Ride</a
+                >
               </li>
-              <li class = "nav-item">
-                <a class ="nav-link" href = "customerprof.html" tabindex = "-1">Profile</a>
+              <li class="nav-item">
+                <a class="nav-link" href="report.html">Reports</a>
+              </li>
             </ul>
+
             <form class="d-flex">
-              <a class="btn btn-light" role="button" href="index.html">Sign Out</a>
-              <a class="btn btn-dark" role="button" href="signup.html">Sign Up</a>
+              <a class="btn btn-light" role="button" href="index.html"
+                >Sign Out</a
+              >
+              <a class="btn btn-dark" role="button" href="signup.html"
+                >Sign Up</a
+              >
             </form>
           </div>
         </div>
       </nav>
     </header>
     <h1>Customer: "Name of Customer"</h1>
-    <div id = "box-one">
-        <h2>Where Can We Pick You Up?</h2>
-        <fieldset id = "fieldset-wrapper">
-           <div class = "profile">
-            <a href = "customerprof.html">View Your Profile</a>
-          </div>
-          <div class = "pickup">
-            <input type = "text" name = "pickup-loc" placeholder="Add a Pickup Location">
-          </div>
-          <div class = "drop-off">
-            <input type = "text" name = "drop-off" placeholder="Add a Drop-Off Location">
-          </div>
-          <div class = "start-search">
-            <input type = "submit" value: = "Start Search">
-          </div>
-          <div class = "estimation">
-            <p> Estimated Total: <output>$</output></p>
-            <a href= "#">Edit Wallet</a>
-            <p> Estimated Time: <output>seconds</output></p>
-          </div>
+    <div id="box-one">
+      <h2>Where Can We Pick You Up?</h2>
+      <fieldset id="fieldset-wrapper">
+        <div class="profile">
+          <a href="#">View Your Profile</a>
+        </div>
+        <div class="pickup">
+          <input
+            type="text"
+            name="pickup-loc"
+            placeholder="Add a Pickup Location"
+          />
+        </div>
+        <div class="drop-off">
+          <input
+            type="text"
+            name="drop-off"
+            placeholder="Add a Drop-Off Location"
+          />
+        </div>
+        <div class="start-search">
+          <input type = "submit" value: = "Start Search">
+        </div>
+        <div class="estimation">
+          <p>Estimated Total: <output>$</output></p>
+          <a href="#">Edit Wallet</a>
+          <p>Estimated Time: <output>seconds</output></p>
+        </div>
       </fieldset>
-
     </div>
     <div id = "box-two">
       <h2> Ride Found</h2>
       <img src ="images/map2.jpg">
       <a href = "#">View Driver Profile</a>
+    <div id="box-two">
+      <h2>Ride Found</h2>
+      <img src="images/map2.jpg" />
     </div>
   </body>
 </html>
-
