@@ -1,5 +1,5 @@
 #page-wrapper{
-	background: url(..."images/Map.jpg");
+	background: url('../images/Map.jpg');
 }
 h1{
 	text-align:left;
