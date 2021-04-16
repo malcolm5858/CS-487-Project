@@ -11,16 +11,16 @@ h1{
 	margin: 5% 15% 5% 5%;
 	float: left;
 	border: 2px solid black;
-	background: lightgray;
+	background: lightblue;
 }
 #box-two{
 	width: 30%;
 	height: auto;
 	float: left;
-	margin: 5% 5% 5% 15%;
+	margin: 5% 5% 5% 5%;
 }
 #box-two img{
-	width:350px;
-	height:300px;
+	width:250px;
+	height:200px;
 }
 
