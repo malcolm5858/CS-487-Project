@@ -19,4 +19,8 @@ h1{
 	float: left;
 	margin: 5% 5% 5% 15%;
 }
+#box-two img{
+	width:350px;
+	height:300px;
+}
 
