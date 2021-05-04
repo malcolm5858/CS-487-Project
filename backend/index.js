@@ -1,9 +1,10 @@
 const express = require("express");
-const { User } = require("./models");
+const { User, Drive } = require("./models");
 const app = express();
 const cors = require("cors");
 const port = 8000;
-
+const accessTokenSecret = "youraccesstokensecret";
+const jwt = require("jsonwebtoken");
 app.use(express.json());
 app.use(cors());
 app.use(
@@ -11,9 +12,34 @@ app.use(
     extended: true,
   })
 );
+
+const authenticateJWT = (req, res, next) => {
+  const authHeader = req.headers.authorization;
+
+  if (authHeader) {
+    const token = authHeader;
+    console.log("Token:" + token);
+    jwt.verify(token, accessTokenSecret, (err, user) => {
+      if (err) {
+        return res.sendStatus(403);
+      }
+
+      req.user = user;
+      next();
+    });
+  } else {
+    res.sendStatus(401);
+  }
+};
+
 app.get("/Users", async (req, res) => {
   const users = await User.findAll();
   res.json(users);
+});
+
+app.get("/Drives", authenticateJWT, async (req, res) => {
+  const drives = await Drive.findAll();
+  res.json(drives);
 });
 
 app.get("/User/:username", async (req, res) => {
@@ -24,6 +50,31 @@ app.get("/User/:username", async (req, res) => {
     },
   });
   res.json(user);
+});
+app.get("/GetUser/:id", async (req, res) => {
+  const { id } = req.params;
+  const user = await User.findOne({
+    where: {
+      id: id,
+    },
+  });
+  res.json(user);
+});
+
+app.post("/Login", async (req, res) => {
+  const { username, password } = req.body;
+
+  const user = await User.findOne({
+    where: {
+      Username: username,
+    },
+  });
+  if (user.Password == password) {
+    const accessToken = jwt.sign({ username: username }, accessTokenSecret);
+    res.json({ accessToken });
+  } else {
+    res.send("password mismatch");
+  }
 });
 
 app.post("/newUser", async (req, res) => {
@@ -43,6 +94,20 @@ app.post("/newUser", async (req, res) => {
     Expiration: req.body.Expiration,
     cvv: req.body.cvv,
     Phone: req.body.Phone,
+  });
+  res.status(201).json({
+    status: "ok",
+  });
+});
+
+app.post("/newDrive", async (req, res) => {
+  const drive = await Drive.create({
+    user_id: req.body.user_id,
+    startLocation: req.body.startLocation,
+    endLocation: req.body.endLocation,
+    price: req.body.price,
+    waitTime: req.body.waitTime,
+    drive_id: req.body.drive_id,
   });
 
   res.status(201).json({
