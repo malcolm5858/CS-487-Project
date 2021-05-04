@@ -1,0 +1,18 @@
+go into terminal
+install node link below 
+-nodejs.org
+run this command 
+npm install --global yarn
+
+-To run server 
+cd into the backend folder
+run "yarn install"
+run "yarn start"
+--Setup database
+download postgres
+start postgres
+cd into the backend folder
+run "yarn db:create"
+run "yarn db:migrate"
+run "yarn db:seeds"
+
