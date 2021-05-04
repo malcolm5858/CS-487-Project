@@ -8,3 +8,11 @@ npm install --global yarn
 cd into the backend folder
 run "yarn install"
 run "yarn start"
+--Setup database
+download postgres
+start postgres
+cd into the backend folder
+run "yarn db:create"
+run "yarn db:migrate"
+run "yarn db:seeds"
+
