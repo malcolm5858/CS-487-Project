@@ -1,35 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-    	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    	<title>Driver</title>
-   		<meta name="viewport" content="width=device-width, initial-scale=1" />
-    	<link rel="stylesheet" href="signin.css">
-	</head>
-	<body id = "wrapper">
-		<header class="funnel"></header>
-		<div id = "signin-wrapper">
-			<h2><strong>Sign In</strong></h2>
-			<fieldset> 
-					<div class = "emailphonenum">
-						<label>Email or mobile number</label>
-							<input type = "text" name = "email_field" placeholder="Email or Mobile Number ">
-					</div>
-					<div class = "password">
-						<label>Password</label>
-							<input type = "text" name="password_field" placeholder = "Password">
-					</div>
-			</fieldset>
-			<div class = "forgot">
-				<input type = "submit" value = "Forgot Password">
-			</div>
-			<div  class = "submitin" >
-				<input type = "submit" value = "Sign in">
-			</div>
-			<div class ="signup">
-				<p> Don't Have an Account? <a href = "signup.html">Sign Up</a></p>
-			</div>
-		</div> 
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Driver</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="signin.css" />
+  </head>
+  <body id="wrapper">
+    <header class="funnel"></header>
+    <div id="signin-wrapper">
+      <h2><strong>Sign In</strong></h2>
+      <form id="formSignIn" action="index.html">
+        <fieldset>
+          <div class="emailphonenum">
+            <label>Email or mobile number</label>
+            <input
+              type="text"
+              name="email_field"
+              placeholder="Email or Mobile Number "
+            />
+          </div>
+          <div class="password">
+            <label>Password</label>
+            <input type="text" name="password_field" placeholder="Password" />
+          </div>
+        </fieldset>
+
+        <div class="forgot">
+          <input type="submit" value="Forgot Password" />
+        </div>
+        <div class="submitin">
+          <input type="submit" value="Sign in" />
+        </div>
+      </form>
+      <div class="signup">
+        <p>Don't Have an Account? <a href="signup.html">Sign Up</a></p>
+      </div>
+    </div>
+  </body>
 </html>
