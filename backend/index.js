@@ -1,8 +1,16 @@
 const express = require("express");
 const { User } = require("./models");
 const app = express();
+const cors = require("cors");
 const port = 8000;
 
+app.use(express.json());
+app.use(cors());
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
 app.get("/Users", async (req, res) => {
   const users = await User.findAll();
   res.json(users);
@@ -19,9 +27,11 @@ app.get("/User/:username", async (req, res) => {
 });
 
 app.post("/newUser", async (req, res) => {
+  console.log(req.body);
   const user = await User.create({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
+    email: req.body.email,
     Username: req.body.Username,
     Password: req.body.Password,
     Address: req.body.Address,

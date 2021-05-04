@@ -18,13 +18,19 @@
       </div>
 
       <div class="row">
-        <form class="needs-validation" novalidate>
+        <form
+          onsubmit="submitForm()"
+          id="formSignup"
+          action="index.html"
+          method="post"
+        >
           <div class="row">
             <div class="col-md-6">
               <div class="form-floating mb-3">
                 <input
                   type="text"
                   id="firstName"
+                  name="firstName"
                   class="form-control"
                   placeholder="first name"
                   required
@@ -38,6 +44,7 @@
                 <input
                   type="text"
                   id="lastName"
+                  name="lastName"
                   class="form-control"
                   placeholder="Last name"
                   required
@@ -52,7 +59,8 @@
             <div class="form-floating mb-3">
               <input
                 type="text"
-                id="username"
+                id="Username"
+                name="Username"
                 class="form-control"
                 required
                 placeholder="username"
@@ -65,7 +73,8 @@
             <div class="form-floating mb-3">
               <input
                 type="password"
-                id="password"
+                id="Password"
+                name="Password"
                 class="form-control"
                 required
                 placeholder="password"
@@ -79,6 +88,7 @@
               <input
                 type="text"
                 id="email"
+                name="email"
                 class="form-control"
                 required
                 placeholder="email"
@@ -93,6 +103,7 @@
               <input
                 type="text"
                 id="address"
+                name="address"
                 class="form-control"
                 required
                 placeholder="Address"
@@ -109,6 +120,7 @@
               <input
                 type="text"
                 id="address2"
+                name="address2"
                 class="form-control"
                 placeholder="Address 2"
               />
@@ -121,6 +133,7 @@
               <select
                 class="form-select d-block w-100 mt-2"
                 id="country"
+                name="country"
                 required
               >
                 <option value="">Country</option>
@@ -132,6 +145,7 @@
               <select
                 class="form-select d-block w-100 mt-2"
                 id="state"
+                name="state"
                 required
               >
                 <option value="">State</option>
@@ -145,6 +159,7 @@
                   type="text"
                   id="zip"
                   class="form-control"
+                  name="zip"
                   required
                   placeholder="zip"
                 />
@@ -187,6 +202,7 @@
                 <input
                   type="text"
                   id="cc-name"
+                  name="cc-name"
                   class="form-control"
                   required
                   placeholder="Name on Card"
@@ -201,6 +217,7 @@
                 <input
                   type="text"
                   id="cc-number"
+                  name="cc-number"
                   class="form-control"
                   placeholder="Credit Card Number"
                   required
@@ -216,6 +233,7 @@
                 <input
                   type="text"
                   id="cc-expiration"
+                  name="cc-expiration"
                   class="form-control"
                   placeholder="Expiration"
                   required
@@ -229,6 +247,7 @@
                 <input
                   type="text"
                   id="cc-cvv"
+                  name="cc-cvv"
                   class="form-control"
                   required
                   placeholder="CVV"
@@ -243,6 +262,7 @@
             Sign Up
           </button>
         </form>
+        <script src="signup.js"></script>
       </div>
     </div>
   </body>
