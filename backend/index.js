@@ -73,7 +73,7 @@ app.post("/Login", async (req, res) => {
     const accessToken = jwt.sign({ username: username }, accessTokenSecret);
     res.json({ accessToken });
   } else {
-    res.send("password mismatch");
+    res.json({ accessToken: "password mismatch" });
   }
 });
 
