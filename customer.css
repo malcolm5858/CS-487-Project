@@ -5,18 +5,31 @@ h1{
 	text-align:left;
 	margin: 5% 0% 5% 5%;
 }
-#box-one{
+#fieldset-wrapper{
 	width: 40%;
+	margin: 5% 35% 5% 5%;
+}
+fieldset a {
+	text-align:center;
+}
+#box-one{
+	width: 80%;
 	height: auto;
-	margin: 5% 10% 5% 5%;
+	margin: 5% 10% 5% 10%;
 	float: left;
-	border: 2px solid black;
 	background: aliceblue;
 	padding: 5px;
-	box-shadow: 0px 2px 8px 10px black;
+	box-shadow: 0px 1px 2px 4px black;
+}
+#box-one h2{
+	text-align: center;
+	margin: 30px 0px 30px 0px;
+}
+#box-one form{
+	margin: 10% 5% 3% 0%;
 }
 #box-two{
-	width: 30%;
+	width: 40%;
 	height: auto;
 	float: left;
 	margin: 5% 5% 5% 5%;
@@ -24,7 +37,7 @@ h1{
 	background:azure;
 }
 #box-two img{
-	width:250px;
-	height:200px;
+	width:300px;
+	height:250px;
 }
 
