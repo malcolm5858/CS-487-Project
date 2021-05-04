@@ -10,6 +10,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" type="text/css" media="screen" href="signup.css" />
+    <script src="signup.js"></script>
   </head>
   <body>
     <div class="container">
@@ -18,12 +19,7 @@
       </div>
 
       <div class="row">
-        <form
-          onsubmit="submitForm()"
-          id="formSignup"
-          action="index.html"
-          method="post"
-        >
+        <form id="formSignup" action="index.html" method="post">
           <div class="row">
             <div class="col-md-6">
               <div class="form-floating mb-3">
@@ -97,7 +93,20 @@
             </div>
             <div class="invalid-feedback">Your email is required.</div>
           </div>
-
+          <div class="mb-3">
+            <div class="form-floating mb-3">
+              <input
+                type="tel"
+                id="Phone"
+                name="Phone"
+                class="form-control"
+                required
+                placeholder="phone"
+              />
+              <label for="email">Phone</label>
+            </div>
+            <div class="invalid-feedback">Your phone is required.</div>
+          </div>
           <div class="col-12 mb-3">
             <div class="form-floating mb-3">
               <input
@@ -262,7 +271,6 @@
             Sign Up
           </button>
         </form>
-        <script src="signup.js"></script>
       </div>
     </div>
   </body>

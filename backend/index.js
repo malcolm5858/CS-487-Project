@@ -42,6 +42,7 @@ app.post("/newUser", async (req, res) => {
     CardNumber: req.body.CardNumber,
     Expiration: req.body.Expiration,
     cvv: req.body.cvv,
+    Phone: req.body.Phone,
   });
 
   res.status(201).json({
