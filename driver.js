@@ -1,11 +1,43 @@
+var go = false;
+
 window.addEventListener("load", function () {
   var drives;
+  var drivers;
   const button = document.getElementById("LookforRider");
   var directionsService;
   var directionsRenderer;
+
+  const observer = new MutationObserver(function () {
+    if (go) {
+      var triggerTabList = [].slice.call(document.querySelectorAll("#myTab a"));
+
+      triggerTabList.forEach(function (triggerEl, index) {
+        var tabTrigger = new bootstrap.Tab(triggerEl);
+        var indexTemp = index;
+        triggerEl.addEventListener("click", function (event) {
+          event.preventDefault();
+          tabTrigger.show();
+          changeCard(indexTemp);
+        });
+      });
+      go = false;
+    }
+  });
+
+  let options = {
+    childList: true,
+    attributes: true,
+    characterData: false,
+    subtree: true,
+  };
+
+  var targetNode = document.body;
+
+  observer.observe(targetNode, options);
+
   async function LookForRiders() {
     var selectedIndex = 0;
-    var drivers;
+
     await fetch("http://localhost:8000/Drives", {
       method: "GET",
       headers: {
@@ -25,37 +57,32 @@ window.addEventListener("load", function () {
       .then((data) => (drivers = data));
     drives.map((_, index) => {
       if (index == 0) {
-        list += `<a class="list-group-item active" aria-current="true" data-toggle="list" list-group-item-action id="list-${drivers[index].firstName}-item">${drivers[index].firstName}</a>`;
+        list += `<a class="list-group-item list-group-item-action active " aria-controls="${drivers[index].firstName}" role="tab" aria-current="true" data-bs-toggle="list" id="myTab-${drivers[index].firstName}">${drivers[index].firstName}</a>`;
       } else {
-        list += `<a class="list-group-item" aria-current="true" data-toggle="list" list-group-item-action id="list-${drivers[index].firstName}-item">${drivers[index].firstName}</a>`;
+        list += `<a class="list-group-item list-group-item-action " role="tab" aria-controls="${drivers[index].firstName}" aria-current="true" data-bs-toggle="list" id="myTab-${drivers[index].firstName}">${drivers[index].firstName}</a>`;
       }
     });
-    document.querySelector("#list-tab").innerHTML = list;
+    document.querySelector("#myTab").innerHTML = list;
 
+    document.querySelector("#mapRapper").innerHTML = `<div id="map"></div>`;
+
+    initMap();
+    changeCard(selectedIndex);
+    go = true;
+  }
+
+  function changeCard(selectedIndex) {
     document.querySelector(
       "#card"
-    ).innerHTML = ` <h5 class="card-title">Driver: ${
+    ).innerHTML = ` <h5 class="card-title">Customer: ${
       drivers[selectedIndex].firstName + " " + drivers[selectedIndex].lastName
     }</h5>
     <p class="card-text">From: ${drives[selectedIndex].startLocation} to: ${
       drives[selectedIndex].endLocation
     }</p>
-    <a href="#" class="btn btn-primary">Drive for ${
+    <a href="#" class="btn btn-primary" onClick="driveFor(${selectedIndex})">Drive for ${
       drivers[selectedIndex].firstName
     }</a>`;
-
-    const triggerTabList = [...document.querySelectorAll(".list-tab a")];
-    triggerTabList.forEach((triggerEl) => {
-      alert("Click");
-      const tabTrigger = new bootstrap.Tab(triggerEl);
-      triggerEl.addEventListener("click", (e) => {
-        e.preventDefault();
-
-        tabTrigger.show();
-      });
-    });
-
-    initMap();
 
     calcRoute(
       drives[selectedIndex].startLocation,
@@ -109,4 +136,24 @@ window.addEventListener("load", function () {
   button.addEventListener("click", function () {
     LookForRiders();
   });
+
+  function driveFor(index) {
+    alert(index);
+  }
+});
+
+document.addEventListener("DOMContentReloaded", () => {
+  alert("DOM");
+  if (go) {
+    var triggerTabList = [].slice.call(document.querySelectorAll("#myTab a"));
+
+    triggerTabList.forEach(function (triggerEl) {
+      var tabTrigger = new bootstrap.Tab(triggerEl);
+      alert("Test");
+      triggerEl.addEventListener("click", function (event) {
+        event.preventDefault();
+        tabTrigger.show();
+      });
+    });
+  }
 });

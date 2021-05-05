@@ -19,7 +19,10 @@
       integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
       crossorigin="anonymous"
     ></script>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
@@ -55,21 +58,57 @@
                   <li><a class="dropdown-item" href="driver.html">Drive</a></li>
                   <li><a class="dropdown-item" href="profile.html">Profile</a></li>
                   <li><a class="dropdown-item" href="profile.html">Wallet</a></li>
+				</ul>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link"
+                  href="driver.html"
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdownMenuLink"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  >Drive</a
+                >
+                <ul
+                  class="dropdown-menu"
+                  aria-labelledby="navbarDropdownMenuLink"
+                >
+                  <li><a class="dropdown-item" href="driver.html">Drive</a></li>
+                  <li>
+                    <a class="dropdown-item" href="profile.html">Profile</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="profile.html">Wallet</a>
+                  </li>
                 </ul>
               </li>
-              <li class="nav-item">
-                <a class = "nav-link" 
-                href="customer.html"
-                class="nav-link dropdown-toggle" 
-                href="#" id="navbarDropdownMenuLink" 
-                role="button" 
-                data-bs-toggle="dropdown" 
-                aria-expanded="false"
-                >Get a Ride</a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="customer.html">Get a Ride</a></li>
-                  <li><a class="dropdown-item" href="profile.html">Profile</a></li>
-                  <li><a class="dropdown-item" href="profile.html">Wallet</a></li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link"
+                  href="customer.html"
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdownMenuLink"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  >Get a Ride</a
+                >
+                <ul
+                  class="dropdown-menu"
+                  aria-labelledby="navbarDropdownMenuLink"
+                >
+                  <li>
+                    <a class="dropdown-item" href="customer.html">Get a Ride</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="profile.html">Profile</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="profile.html">Wallet</a>
+                  </li>
                 </ul>
               </li>
               <li class="nav-item">
@@ -91,29 +130,45 @@
     </header>
     <div id="page-wrapper">
       <h1>Profile</h1>
-      <h2> Name - First and Last</h2>
-      <img src="images/profilepic.jpeg" alt="profile picture">
-      <button type ="button" value ="change_picture">Change Profile Picture</button>
-      <fieldset id ="fieldset-wrapper">
+      <h2>Name - First and Last</h2>
+      <img src="images/profilepic.jpeg" alt="profile picture" />
+      <button type="button" value="change_picture">
+        Change Profile Picture
+      </button>
+      <fieldset id="fieldset-wrapper">
         <form>
-          <label for = "phone"> Phone Number</label>
-          <input id = "phoneNum" name="phone" placeholder="773-773-7733">
-          <label for= "email"> Email</label>
-          <input id = "email" name="email" placeholder = "customeremail@gmail.com">
-          <label for= "address">Address</label>
-          <input id = "address" name="address" placeholder="123 N Customer Address St">
+          <label for="phone"> Phone Number</label>
+          <input id="phoneNum" name="phone" placeholder="773-773-7733" />
+          <label for="email"> Email</label>
+          <input
+            id="email"
+            name="email"
+            placeholder="customeremail@gmail.com"
+          />
+          <label for="address">Address</label>
+          <input
+            id="address"
+            name="address"
+            placeholder="123 N Customer Address St"
+          />
         </form>
       </fieldset>
-      <button type="button" value = "save_changes">Save Changes</button>
-      <button type="button" value = "sign_out">Sign Out</button>
-      <div id = "editWallet">
+      <button type="button" value="save_changes">Save Changes</button>
+      <button type="button" value="sign_out">Sign Out</button>
+      <div id="editWallet">
         <h2>Welcome to your Wallet, Customer</h2>
-        <div class ="payment-methods">
+        <div class="payment-methods">
           <h3>Payment Methods</h3>
           <div class="card">
             <div class="card__front card__part">
-              <img class="card__front-square card__square" src="https://image.ibb.co/cZeFjx/little_square.png">
-              <img class="card__front-logo card__logo" src="https://www.fireeye.com/partners/strategic-technology-partners/visa-fireeye-cyber-watch-program/_jcr_content/content-par/grid_20_80_full/grid-20-left/image.img.png/1505254557388.png">
+              <img
+                class="card__front-square card__square"
+                src="https://image.ibb.co/cZeFjx/little_square.png"
+              />
+              <img
+                class="card__front-logo card__logo"
+                src="https://www.fireeye.com/partners/strategic-technology-partners/visa-fireeye-cyber-watch-program/_jcr_content/content-par/grid_20_80_full/grid-20-left/image.img.png/1505254557388.png"
+              />
               <p class="card_numer">**** **** **** 6258</p>
               <div class="card__space-75">
                 <span class="card__label">Card holder</span>
@@ -121,22 +176,27 @@
               </div>
               <div class="card__space-25">
                 <span class="card__label">Expires</span>
-                      <p class="card__info">10/25</p>
+                <p class="card__info">10/25</p>
               </div>
             </div>
-            
+
             <div class="card__back card__part">
               <div class="card__black-line"></div>
               <div class="card__back-content">
                 <div class="card__secret">
                   <p class="card__secret--last">420</p>
                 </div>
-                <img class="card__back-square card__square" src="https://image.ibb.co/cZeFjx/little_square.png">
-                <img class="card__back-logo card__logo" src="https://www.fireeye.com/partners/strategic-technology-partners/visa-fireeye-cyber-watch-program/_jcr_content/content-par/grid_20_80_full/grid-20-left/image.img.png/1505254557388.png">
+                <img
+                  class="card__back-square card__square"
+                  src="https://image.ibb.co/cZeFjx/little_square.png"
+                />
+                <img
+                  class="card__back-logo card__logo"
+                  src="https://www.fireeye.com/partners/strategic-technology-partners/visa-fireeye-cyber-watch-program/_jcr_content/content-par/grid_20_80_full/grid-20-left/image.img.png/1505254557388.png"
+                />
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
