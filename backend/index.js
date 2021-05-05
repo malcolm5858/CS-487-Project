@@ -25,6 +25,7 @@ const authenticateJWT = (req, res, next) => {
       }
 
       req.user = user;
+      console.log(user);
       next();
     });
   } else {
@@ -42,6 +43,22 @@ app.get("/Drives", authenticateJWT, async (req, res) => {
   res.json(drives);
 });
 
+app.get("/DrivesDrivers", authenticateJWT, async (req, res) => {
+  const drives = await Drive.findAll();
+  const drivers = [];
+
+  for (i = 0; i < drives.length; i++) {
+    const user = await User.findOne({
+      where: {
+        id: drives[i].drive_id,
+      },
+    });
+    drivers.push(user);
+  }
+
+  res.json(drivers);
+});
+
 app.get("/User/:username", async (req, res) => {
   const { username } = req.params;
   const user = await User.findOne({
@@ -51,7 +68,16 @@ app.get("/User/:username", async (req, res) => {
   });
   res.json(user);
 });
-app.get("/GetUser/:id", async (req, res) => {
+app.get("/GetUser", authenticateJWT, async (req, res) => {
+  const id = req.user.id;
+  const user = await User.findOne({
+    where: {
+      id: id,
+    },
+  });
+  res.json(user);
+});
+app.get("/GetUserID/:id", authenticateJWT, async (req, res) => {
   const { id } = req.params;
   const user = await User.findOne({
     where: {
@@ -70,7 +96,10 @@ app.post("/Login", async (req, res) => {
     },
   });
   if (user.Password == password) {
-    const accessToken = jwt.sign({ username: username }, accessTokenSecret);
+    const accessToken = jwt.sign(
+      { username: username, id: user.id },
+      accessTokenSecret
+    );
     res.json({ accessToken });
   } else {
     res.json({ accessToken: "password mismatch" });
