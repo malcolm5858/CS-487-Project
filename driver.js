@@ -1,7 +1,10 @@
 window.addEventListener("load", function () {
   var drives;
   const button = document.getElementById("LookforRider");
+  var directionsService;
+  var directionsRenderer;
   async function LookForRiders() {
+    var selectedIndex = 0;
     var drivers;
     await fetch("http://localhost:8000/Drives", {
       method: "GET",
@@ -20,18 +23,71 @@ window.addEventListener("load", function () {
     })
       .then((response) => response.json())
       .then((data) => (drivers = data));
-
-    drives.map((drive, index) => {
-      //const user;
-      //fetch(`http://localhost:8000/GetUserID/${drive.user_id}`);
-
+    drives.map((_, index) => {
       if (index == 0) {
-        list += `<a class="list-group-item active" aria-current="true">${drivers[index].firstName}</a>`;
+        list += `<a class="list-group-item active" aria-current="true" data-toggle="list" list-group-item-action id="list-${drivers[index].firstName}-item">${drivers[index].firstName}</a>`;
       } else {
-        list += `<a class="list-group-item" aria-current="true">${drivers[index].firstName}</a>`;
+        list += `<a class="list-group-item" aria-current="true" data-toggle="list" list-group-item-action id="list-${drivers[index].firstName}-item">${drivers[index].firstName}</a>`;
       }
     });
-    document.querySelector("#list-group").innerHTML = list;
+    document.querySelector("#list-tab").innerHTML = list;
+
+    document.querySelector(
+      "#card"
+    ).innerHTML = ` <h5 class="card-title">Driver: ${
+      drivers[selectedIndex].firstName + " " + drivers[selectedIndex].lastName
+    }</h5>
+    <p class="card-text">From: ${drives[selectedIndex].startLocation} to: ${
+      drives[selectedIndex].endLocation
+    }</p>
+    <a href="#" class="btn btn-primary">Drive for ${
+      drivers[selectedIndex].firstName
+    }</a>`;
+
+    const triggerTabList = [...document.querySelectorAll(".list-tab a")];
+    triggerTabList.forEach((triggerEl) => {
+      alert("Click");
+      const tabTrigger = new bootstrap.Tab(triggerEl);
+      triggerEl.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        tabTrigger.show();
+      });
+    });
+
+    initMap();
+
+    calcRoute(
+      drives[selectedIndex].startLocation,
+      drives[selectedIndex].endLocation
+    );
+  }
+
+  function initMap() {
+    directionsService = new google.maps.DirectionsService();
+    directionsRenderer = new google.maps.DirectionsRenderer();
+    var chicago = new google.maps.LatLng(41.850033, -87.6500523);
+    var mapOptions = {
+      zoom: 7,
+      center: chicago,
+    };
+    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    directionsRenderer.setMap(map);
+  }
+
+  function calcRoute(start, end) {
+    var start = start;
+    var end = end;
+    var request = {
+      origin: start,
+      destination: end,
+      travelMode: "DRIVING",
+    };
+    directionsService.route(request, function (result, status) {
+      if (status == "OK") {
+        directionsRenderer.setDirections(result);
+      }
+    });
   }
 
   async function onLoad() {

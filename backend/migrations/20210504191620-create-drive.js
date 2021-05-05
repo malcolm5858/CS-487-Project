@@ -17,15 +17,6 @@ module.exports = {
           key: "id",
         },
       },
-      drive_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: {
-            tableName: "users",
-          },
-          key: "id",
-        },
-      },
       startLocation: {
         type: Sequelize.STRING,
       },
