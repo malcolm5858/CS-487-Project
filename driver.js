@@ -25,12 +25,14 @@ window.addEventListener("load", function () {
       .then((data) => (drivers = data));
     drives.map((_, index) => {
       if (index == 0) {
-        list += `<a class="list-group-item active" aria-current="true" data-toggle="list" list-group-item-action id="list-${drivers[index].firstName}-item">${drivers[index].firstName}</a>`;
+        list += `<a class="list-group-item list-group-item-action active " aria-controls="${drivers[index].firstName}" role="tab" aria-current="true" data-bs-toggle="list" id="myTab-${drivers[index].firstName}">${drivers[index].firstName}</a>`;
       } else {
-        list += `<a class="list-group-item" aria-current="true" data-toggle="list" list-group-item-action id="list-${drivers[index].firstName}-item">${drivers[index].firstName}</a>`;
+        list += `<a class="list-group-item list-group-item-action " role="tab" aria-controls="${drivers[index].firstName}" aria-current="true" data-bs-toggle="list" lid="myTab-${drivers[index].firstName}">${drivers[index].firstName}</a>`;
       }
     });
     document.querySelector("#list-tab").innerHTML = list;
+
+    document.querySelector("#mapRapper").innerHTML = `<div id="map"></div>`;
 
     document.querySelector(
       "#card"
@@ -43,17 +45,20 @@ window.addEventListener("load", function () {
     <a href="#" class="btn btn-primary">Drive for ${
       drivers[selectedIndex].firstName
     }</a>`;
+    setTimeout(() => {
+      var bob = document.querySelector("#myTab-BOB");
+      alert(bob);
+    }, 2000);
+    //var triggerTabList = [].slice.call(document.querySelectorAll("#myTab-BON"));
 
-    const triggerTabList = [...document.querySelectorAll(".list-tab a")];
-    triggerTabList.forEach((triggerEl) => {
-      alert("Click");
-      const tabTrigger = new bootstrap.Tab(triggerEl);
-      triggerEl.addEventListener("click", (e) => {
-        e.preventDefault();
-
-        tabTrigger.show();
-      });
-    });
+    // triggerTabList.forEach(function (triggerEl) {
+    //   var tabTrigger = new bootstrap.Tab(triggerEl);
+    //   alert("Test");
+    //   triggerEl.addEventListener("click", function (event) {
+    //     event.preventDefault();
+    //     tabTrigger.show();
+    //   });
+    // });
 
     initMap();
 
