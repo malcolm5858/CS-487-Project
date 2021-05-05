@@ -1,0 +1,65 @@
+#driver-wrapper{
+    width: 70%;
+    margin: 5% 15% 5% 15%;
+}
+#driver-wrapper h1{
+    text-align: center;
+    margin-bottom: 5%;
+    width:100%;
+    padding:5px;
+    color: black;   
+}
+#driver-wrapper h2{
+    margin-top: 5%;
+    text-align: center;
+    margin-bottom: 5%;
+    width:100%;
+    padding:5px;
+    background:lightsteelblue;
+    color: black;
+}
+#driver-wrapper img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border:2px solid black;
+}
+#driver-wrapper button{
+    width: 50%;
+    height: 50px;
+    margin:10% 25% 2% 25%;
+    font-size: 13px;
+    background: lightslategrey;
+    color: white;
+}
+#driver-wrapper button:hover{
+    box-shadow: 0px 1px 2px 2px darkcyan;
+    font-size: 14px;
+}
+#driver-wrapper ul{
+    width: 100%;
+    background:lightgray;
+    padding: 10px;
+    font-size: 20px;
+    list-style-type: none;
+}
+#driver-wrapper ul li{
+    padding: 20px 0px 20px 10px;
+    margin:10% 0% 10% 0%;
+    background: dimgrey;
+    color: white;
+}
+#driver-wrapper ul li a{
+    color:white;
+    background:black;
+    padding: 15px 60px 15px 60px;
+    text-decoration: none;
+    margin:0% 0% 0% 15%;
+}
+#driver-wrapper ul li a:hover{
+    color:black;
+    background:lightgray;
+    border-radius: 5px;
+    box-shadow: 0px 2px 3px 1px white;
+}
