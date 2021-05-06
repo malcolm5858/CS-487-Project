@@ -1,18 +1,8 @@
+var found = false;
 window.addEventListener("load", function () {
   const form = document.getElementById("formAddlocation");
   var directionsService;
   var directionsRenderer;
-  function initMap() {
-    directionsService = new google.maps.DirectionsService();
-    directionsRenderer = new google.maps.DirectionsRenderer();
-    var chicago = new google.maps.LatLng(41.850033, -87.6500523);
-    var mapOptions = {
-      zoom: 7,
-      center: chicago,
-    };
-    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-    directionsRenderer.setMap(map);
-  }
 
   //google.maps.event.addDomListener(window, 'load', initMap);
 
@@ -61,6 +51,7 @@ window.addEventListener("load", function () {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     submitForm();
+    alert("Requested Drive");
   });
 
   loadPage();
@@ -70,35 +61,51 @@ reload();
 setInterval(reload, 5000);
 
 async function reload() {
-  var drives = [];
-  await fetch("http://localhost:8000/GetDrives", {
-    method: "GET",
-    headers: {
-      Authorization: localStorage.getItem("token"),
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => (drives = data));
+  if (!found) {
+    var drives = [];
+    await fetch("http://localhost:8000/GetDrives", {
+      method: "GET",
+      headers: {
+        Authorization: localStorage.getItem("token"),
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => (drives = data));
 
-  const drive = drives[0];
-  console.log(drive);
-  if (drive.drive_id != null) {
-    const html = `<h2> Ride Found</h2>
-      <div id ="map">
-      </div>
+    const drive = drives[0];
+    console.log(drive);
+    if (drive.drive_id != null) {
+      found = true;
+      const html = `
+	  <h2>Ride Found</h2>
+      <div id="map"></div>
       <div class="estimation">
         <p>Estimated Total: <output>${drive.price}</output></p>
         <p>Estimated Time: <output>${drive.waitTime}</output></p>
         <a href="profile.html">Edit Wallet</a>
+		<a onClick="RideOver(${drive.id})">Ride is Over</a>
       </div>
       <div class = "driverProfile">
         <a href="profileDri.html">View Driver Profile</a>
       </div>`;
 
-    document.querySelector("#box-two").innerHTML = html;
+      document.querySelector("#items").innerHTML = html;
+
+      initMap();
+      calcRoute(drive.startLocation, drive.endLocation);
+    }
   }
 }
 
+async function RideOver(id) {
+  await fetch(`http://localhost:8000/DeleteDrive/${id}`, {
+    method: "POST",
+    headers: {
+      Authorization: localStorage.getItem("token"),
+    },
+  });
+  location.reload();
+}
 async function getUser() {
   var user;
   await fetch("http://localhost:8000/GetUser", {
@@ -111,4 +118,31 @@ async function getUser() {
     .then((data) => (user = data));
 
   return user;
+}
+
+function initMap() {
+  directionsService = new google.maps.DirectionsService();
+  directionsRenderer = new google.maps.DirectionsRenderer();
+  var chicago = new google.maps.LatLng(41.850033, -87.6500523);
+  var mapOptions = {
+    zoom: 7,
+    center: chicago,
+  };
+  var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+  directionsRenderer.setMap(map);
+}
+
+function calcRoute(start, end) {
+  var start = start;
+  var end = end;
+  var request = {
+    origin: start,
+    destination: end,
+    travelMode: "DRIVING",
+  };
+  directionsService.route(request, function (result, status) {
+    if (status == "OK") {
+      directionsRenderer.setDirections(result);
+    }
+  });
 }

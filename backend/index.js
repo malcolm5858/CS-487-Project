@@ -81,6 +81,14 @@ app.post("/UpdateDrive/:drive_id/:drive", authenticateJWT, async (req, res) => {
   });
 });
 
+app.post("/DeleteDrive/:id", authenticateJWT, async (req, res) => {
+  const { id } = req.params;
+  await Drive.destroy({ where: { id: id } });
+  res.status(201).json({
+    status: "ok",
+  });
+});
+
 app.get("/User/:username", async (req, res) => {
   const { username } = req.params;
   const user = await User.findOne({

@@ -10,16 +10,15 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
-      crossorigin="anonymous"/>
+      crossorigin="anonymous"
+    />
     <script src="customer.js"></script>
     <script src="logout-signin.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-      crossorigin="anonymous">
-    </script>
-    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAl7-DnGlElcaXlOTn_9bPcSbZ1Q2Ypqso&callback=initMap">
-    </script>  
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body id="page-wrapper">
     <header>
@@ -43,18 +42,28 @@
                 <a class="nav-link" href="index.html">Home</a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link" 
-                href="driver.html"
-                class="nav-link dropdown-toggle" 
-                href="#" id="navbarDropdownMenuLink" 
-                role="button" 
-                data-bs-toggle="dropdown" 
-                aria-expanded="false"
-                >Drive</a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a
+                  class="nav-link"
+                  href="driver.html"
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdownMenuLink"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  >Drive</a
+                >
+                <ul
+                  class="dropdown-menu"
+                  aria-labelledby="navbarDropdownMenuLink"
+                >
                   <li><a class="dropdown-item" href="driver.html">Drive</a></li>
-                  <li><a class="dropdown-item" href="profile.html">Profile</a></li>
-                  <li><a class="dropdown-item" href="profile.html">Wallet</a></li>
+                  <li>
+                    <a class="dropdown-item" href="profile.html">Profile</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="profile.html">Wallet</a>
+                  </li>
                 </ul>
               </li>
               <li class="nav-item dropdown">
@@ -63,41 +72,50 @@
                   aria-current="page"
                   href="customer.html"
                   tabindex="-1"
-                  class="nav-link dropdown-toggle" 
-                  href="#" id="navbarDropdownMenuLink" 
-                  role="button" 
-                  data-bs-toggle="dropdown" 
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdownMenuLink"
+                  role="button"
+                  data-bs-toggle="dropdown"
                   aria-expanded="false"
-                  >Get a Ride</a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="customer.html">Get a Ride</a></li>
-                    <li><a class="dropdown-item" href="profile.html">Profile</a></li>
-                    <li><a class="dropdown-item" href="profile.html">Wallet</a></li>
-                  </ul>
+                  >Get a Ride</a
+                >
+                <ul
+                  class="dropdown-menu"
+                  aria-labelledby="navbarDropdownMenuLink"
+                >
+                  <li>
+                    <a class="dropdown-item" href="customer.html">Get a Ride</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="profile.html">Profile</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="profile.html">Wallet</a>
+                  </li>
+                </ul>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="report.html">Reports</a>
               </li>
             </ul>
 
-            <form class="d-flex" id="signInSignup">
-             
-            </form>
+            <form class="d-flex" id="signInSignup"></form>
           </div>
         </div>
       </nav>
     </header>
     <div id="Title"></div>
-    
+
     <div id="box-one">
       <h2>Where Can We Pick You Up?</h2>
       <fieldset id="fieldset-wrapper">
         <div class="profile">
           <a href="profile.html">View Your Profile</a>
-        </div> 
+        </div>
         <form id="formAddlocation" action="" method="post">
-          <div class="pickup"> 
-            <label for = "pickup-loc"> Pick Up Location</label>
+          <div class="pickup">
+            <label for="pickup-loc"> Pick Up Location</label>
             <input
               type="text"
               name="pickup-loc"
@@ -105,7 +123,7 @@
             />
           </div>
           <div class="drop-off">
-            <label for = "drop-off"> Drop Off Location</label>
+            <label for="drop-off"> Drop Off Location</label>
             <input
               type="text"
               name="drop-off"
@@ -113,14 +131,21 @@
             />
           </div>
           <div class="start-search">
-            <button type = "submit" value: ="start_search">Search for Ride</button>
+            <button type="submit" value="start_search">Search for Ride</button>
           </div>
         </form>
-        <button type = "button" value: ="sign_out" onClick="logout()">Sign Out</a>
+        <button type="button" value="sign_out" onClick="logout()">
+          Sign Out
+        </button>
       </fieldset>
     </div>
-    <div id = "box-two">
-      
+
+    <div id="box-two">
+      <div id="items"></div>
     </div>
+    <script
+      async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAl7-DnGlElcaXlOTn_9bPcSbZ1Q2Ypqso&callback=initMap"
+    ></script>
   </body>
 </html>
