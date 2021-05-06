@@ -77,7 +77,7 @@ async function reload() {
     if (drive.drive_id != null) {
       found = true;
       const html = `
-	  <h2>Ride Found</h2>
+	  <h2>Driver Found</h2>
       <div id="map"></div>
       <div class="estimation">
         <p>Estimated Total: <output>${drive.price}</output></p>
