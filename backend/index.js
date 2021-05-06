@@ -129,7 +129,7 @@ app.post("/newUser", async (req, res) => {
   });
 });
 
-app.post("/newDrive", async (req, res) => {
+app.post("/newDrive", authenticateJWT, async (req, res) => {
   const drive = await Drive.create({
     user_id: req.body.user_id,
     startLocation: req.body.startLocation,

@@ -137,9 +137,7 @@ window.addEventListener("load", function () {
     LookForRiders();
   });
 
-  function driveFor(index) {
-    alert(index);
-  }
+  function driveFor(index) {}
 });
 
 document.addEventListener("DOMContentReloaded", () => {
