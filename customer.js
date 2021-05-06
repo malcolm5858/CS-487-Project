@@ -1,4 +1,5 @@
 window.addEventListener("load", function () {
+  const form = document.getElementById("formAddlocation");
   var directionsService;
   var directionsRenderer;
   function initMap() {
@@ -27,13 +28,13 @@ window.addEventListener("load", function () {
   }
 
   async function submitForm() {
-    var formEl = document.forms;
-
-    const user = getUser();
+    var formEl = document.forms.formAddlocation;
+    var formData = new FormData(formEl);
+    const user = await getUser();
 
     //Get Form elements
-    const startLocation = "";
-    const endLocation = "";
+    const startLocation = formData.get("pickup-loc");
+    const endLocation = formData.get("drop-off");
 
     const price = "$20.00";
     const waitTime = "1 Hr";
@@ -44,23 +45,70 @@ window.addEventListener("load", function () {
       endLocation: endLocation,
       price: price,
       waitTime: waitTime,
-      drive_id: null,
     };
 
     await makeNew(drive);
   }
 
-  async function getUser() {
-    var user;
-    await fetch("http://localhost:8000/GetUser", {
-      method: "GET",
-      headers: {
-        Authorization: localStorage.getItem("token"),
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => (user = data));
+  async function loadPage() {
+    const user = await getUser();
 
-    return user;
+    document.querySelector(
+      "#Title"
+    ).innerHTML = `<h1>Customer: ${user.firstName}</h1>`;
   }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    submitForm();
+  });
+
+  loadPage();
 });
+
+reload();
+setInterval(reload, 5000);
+
+async function reload() {
+  var drives = [];
+  await fetch("http://localhost:8000/GetDrives", {
+    method: "GET",
+    headers: {
+      Authorization: localStorage.getItem("token"),
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => (drives = data));
+
+  const drive = drives[0];
+  console.log(drive);
+  if (drive.drive_id != null) {
+    const html = `<h2> Ride Found</h2>
+      <div id ="map">
+      </div>
+      <div class="estimation">
+        <p>Estimated Total: <output>${drive.price}</output></p>
+        <p>Estimated Time: <output>${drive.waitTime}</output></p>
+        <a href="profile.html">Edit Wallet</a>
+      </div>
+      <div class = "driverProfile">
+        <a href="profileDri.html">View Driver Profile</a>
+      </div>`;
+
+    document.querySelector("#box-two").innerHTML = html;
+  }
+}
+
+async function getUser() {
+  var user;
+  await fetch("http://localhost:8000/GetUser", {
+    method: "GET",
+    headers: {
+      Authorization: localStorage.getItem("token"),
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => (user = data));
+
+  return user;
+}

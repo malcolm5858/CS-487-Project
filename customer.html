@@ -87,14 +87,15 @@
         </div>
       </nav>
     </header>
-    <h1>Customer: "Name of Customer"</h1>
+    <div id="Title"></div>
+    
     <div id="box-one">
       <h2>Where Can We Pick You Up?</h2>
       <fieldset id="fieldset-wrapper">
         <div class="profile">
           <a href="profile.html">View Your Profile</a>
         </div> 
-        <form>
+        <form id="formAddlocation" action="" method="post">
           <div class="pickup"> 
             <label for = "pickup-loc"> Pick Up Location</label>
             <input
@@ -112,24 +113,14 @@
             />
           </div>
           <div class="start-search">
-            <button type = "button" value: ="start_search">Search for Ride</button>
+            <button type = "submit" value: ="start_search">Search for Ride</button>
           </div>
         </form>
         <button type = "button" value: ="sign_out" onClick="logout()">Sign Out</a>
       </fieldset>
     </div>
     <div id = "box-two">
-      <h2> Ride Found</h2>
-      <div id ="map">
-      </div>
-      <div class="estimation">
-        <p>Estimated Total: <output></output></p>
-        <p>Estimated Time: <output></output></p>
-        <a href="profile.html">Edit Wallet</a>
-      </div>
-      <div class = "driverProfile">
-        <a href="profileDri.html">View Driver Profile</a>
-      </div>
+      
     </div>
   </body>
 </html>

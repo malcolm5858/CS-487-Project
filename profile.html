@@ -46,19 +46,31 @@
                 <a class="nav-link" href="index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" 
-                href="driver.html"
-                class="nav-link dropdown-toggle" 
-                href="#" id="navbarDropdownMenuLink" 
-                role="button" 
-                data-bs-toggle="dropdown" 
-                aria-expanded="false"
-                >Drive</a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a
+                  class="nav-link"
+                  href="driver.html"
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdownMenuLink"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  >Drive</a
+                >
+                <ul
+                  class="dropdown-menu"
+                  aria-labelledby="navbarDropdownMenuLink"
+                >
                   <li><a class="dropdown-item" href="driver.html">Drive</a></li>
-                  <li><a class="dropdown-item" href="profile.html">Profile</a></li>
-                  <li><a class="dropdown-item" href="profile.html">Wallet</a></li>
-			     	</ul>
+                  <li>
+                    <a class="dropdown-item" href="profile.html">Profile</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="profile.html">Wallet</a>
+                  </li>
+                </ul>
+              </li>
+
               <li class="nav-item dropdown">
                 <a
                   class="nav-link"
@@ -105,7 +117,10 @@
     </header>
     <div id="page-wrapper">
       <h1>Profile</h1>
-      <h2 id = "nameoutput" class = "center">Name - First and Last</h2>
+      <div id="nameoutput">
+        <h2 class="center">Name - First and Last</h2>
+      </div>
+
       <img src="images/profilepic.jpeg" alt="profile picture" />
       <button type="button" value="change_picture">
         Change Profile Picture
@@ -113,19 +128,26 @@
       <fieldset id="fieldset-wrapper">
         <form>
           <label for="phone"> Phone Number</label>
-          <input id="phoneNum" name="phone" placeholder="773-773-7733" />
+          <div id="phoneNum">
+            <input id="phoneNum" name="phone" placeholder="773-773-7733" />
+          </div>
+
           <label for="email"> Email</label>
-          <input
-            id="email"
-            name="email"
-            placeholder="customeremail@gmail.com"
-          />
+          <div id="email">
+            <input
+              id="email"
+              name="email"
+              placeholder="customeremail@gmail.com"
+            />
+          </div>
           <label for="address">Address</label>
-          <input
-            id="address"
-            name="address"
-            placeholder="123 N Customer Address St"
-          />
+          <div id="adress">
+            <input
+              id="address"
+              name="address"
+              placeholder="123 N Customer Address St"
+            />
+          </div>
         </form>
       </fieldset>
       <button type="button" value="save_changes">Save Changes</button>

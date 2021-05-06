@@ -39,7 +39,11 @@ app.get("/Users", async (req, res) => {
 });
 
 app.get("/Drives", authenticateJWT, async (req, res) => {
-  const drives = await Drive.findAll();
+  const drives = await Drive.findAll({
+    where: {
+      drive_id: null,
+    },
+  });
   res.json(drives);
 });
 
@@ -50,13 +54,31 @@ app.get("/DrivesDrivers", authenticateJWT, async (req, res) => {
   for (i = 0; i < drives.length; i++) {
     const user = await User.findOne({
       where: {
-        id: drives[i].drive_id,
+        id: drives[i].user_id,
       },
     });
     drivers.push(user);
   }
 
   res.json(drivers);
+});
+
+app.get("/GetDrives", authenticateJWT, async (req, res) => {
+  const id = req.user.id;
+  const drives = await Drive.findAll({
+    where: {
+      user_id: id,
+    },
+  });
+  res.json(drives);
+});
+
+app.post("/UpdateDrive/:drive_id/:drive", authenticateJWT, async (req, res) => {
+  const { drive_id, drive } = req.params;
+  await Drive.update({ drive_id: drive_id }, { where: { id: drive } });
+  res.status(201).json({
+    status: "ok",
+  });
 });
 
 app.get("/User/:username", async (req, res) => {
@@ -136,7 +158,6 @@ app.post("/newDrive", authenticateJWT, async (req, res) => {
     endLocation: req.body.endLocation,
     price: req.body.price,
     waitTime: req.body.waitTime,
-    drive_id: req.body.drive_id,
   });
 
   res.status(201).json({

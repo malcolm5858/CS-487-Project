@@ -1,8 +1,9 @@
 var go = false;
+var drives;
+var drivers;
+var user;
 
 window.addEventListener("load", function () {
-  var drives;
-  var drivers;
   const button = document.getElementById("LookforRider");
   var directionsService;
   var directionsRenderer;
@@ -79,7 +80,10 @@ window.addEventListener("load", function () {
     }</h5>
     <p class="card-text">From: ${drives[selectedIndex].startLocation} to: ${
       drives[selectedIndex].endLocation
-    }</p>
+    }
+    <br>
+    Price: ${drives[selectedIndex].price}
+    </p>
     <a href="#" class="btn btn-primary" onClick="driveFor(${selectedIndex})">Drive for ${
       drivers[selectedIndex].firstName
     }</a>`;
@@ -118,7 +122,6 @@ window.addEventListener("load", function () {
   }
 
   async function onLoad() {
-    var user;
     await fetch("http://localhost:8000/GetUser", {
       method: "GET",
       headers: {
@@ -137,21 +140,34 @@ window.addEventListener("load", function () {
     LookForRiders();
   });
 
-  function driveFor(index) {}
-});
+  document.addEventListener("DOMContentReloaded", () => {
+    alert("DOM");
+    if (go) {
+      var triggerTabList = [].slice.call(document.querySelectorAll("#myTab a"));
 
-document.addEventListener("DOMContentReloaded", () => {
-  alert("DOM");
-  if (go) {
-    var triggerTabList = [].slice.call(document.querySelectorAll("#myTab a"));
-
-    triggerTabList.forEach(function (triggerEl) {
-      var tabTrigger = new bootstrap.Tab(triggerEl);
-      alert("Test");
-      triggerEl.addEventListener("click", function (event) {
-        event.preventDefault();
-        tabTrigger.show();
+      triggerTabList.forEach(function (triggerEl) {
+        var tabTrigger = new bootstrap.Tab(triggerEl);
+        alert("Test");
+        triggerEl.addEventListener("click", function (event) {
+          event.preventDefault();
+          tabTrigger.show();
+        });
       });
-    });
-  }
+    }
+  });
 });
+
+function driveFor(index) {
+  updateDrive(drives[index]);
+  alert("Took Drive");
+  location.reload();
+}
+
+async function updateDrive(drive) {
+  await fetch(`http://localhost:8000/UpdateDrive/${user.id}/${drive.id}`, {
+    method: "POST",
+    headers: {
+      Authorization: localStorage.getItem("token"),
+    },
+  });
+}
